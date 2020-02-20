@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta charset="UTF-8">
+    <meta name="Author" content="Andreas Moe">
+    <meta name="Date" content="2/20/2020">
+    <meta name=Assignment content="Comp20-5">
+    <meta name="Description" content="Joe's Hotdogs">
+    <title>
+        Joe's Hotdogs
+    </title>
+</head>
+<body onload="calcOrder()">
+    <script language="JavaScript"> 
+        function calcOrder(){
+            var numHotdogs = parseInt(prompt("How many hotdogs?", "1"));
+            var hotdogs = parseFloat(numHotdogs) * 3.25;
+
+            var numFries = parseInt(prompt("How many fries?", "1"));
+            var fries = parseFloat(numFries) * 2.00;
+
+            var numSodas = parseInt(prompt("How many sodas?", "1"));
+            var sodas = parseFloat(numSodas) * 1.50;
+
+            var order = parseFloat(hotdogs + fries + sodas) * 0.9;
+            var tax = order * 0.0625;
+            var total = order + tax;
+
+            //use .toFixed for correct number of decimal places
+            hotdogs = hotdogs.toFixed(2);
+            fries = fries.toFixed(2);
+            sodas = sodas.toFixed(2);
+            order = order.toFixed(2);
+            tax = tax.toFixed(2);
+            total = total.toFixed(2);
+
+            document.getElementById("numHotdogs").innerHTML = numHotdogs;
+            document.getElementById("hotdogs").innerHTML = hotdogs;
+
+            document.getElementById("numFries").innerHTML = numFries;
+            document.getElementById("fries").innerHTML = fries;
+
+            document.getElementById("numSodas").innerHTML = numSodas;
+            document.getElementById("sodas").innerHTML = sodas;
+
+            document.getElementById("subtotal").innerHTML = order;
+            document.getElementById("tax").innerHTML = tax;
+            document.getElementById("total").innerHTML = total;
+        }
+    </script>
+    <h1>Welcome to Joe's Hotdogs!</h1>
+    <h2>Your Order</h2>
+    <div># Hotdogs: <span id="numHotdogs"></span> at $3.25 is $
+        <span id="hotdogs"></span></span></div>
+    <div># Fries: <span id="numFries"></span> at $2.00 is $
+        <span id="fries"></span></span></div>
+    <div># Sodas: <span id="numSodas"></span> at $1.50 is $
+        <span id="sodas"></span></span></div>
+    <div>You qualified for our 10% discount.</div>
+    <div>Subtotal: $<span id="subtotal"></span></div>
+    <div>Meal Tax: $<span id="tax"></span></div>
+    <div>Total: $<span id="total"></span></div>
+</body>
